@@ -46,8 +46,10 @@ namespace GraphQlAirlines.Api.Types
                 .Select(async airportId =>
                 {
                     var airport = await _dataStore.GetAirportByIdAsync(airportId);
-                    return _mapper.Map<AirportType>(airport);
+                    return airport;
                 })
+                .Where(x => x.Result != null)
+                .Select(x => { return Task.FromResult( _mapper.Map<AirportType>(x.Result)); })
             );
         }
 

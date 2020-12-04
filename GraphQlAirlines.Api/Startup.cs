@@ -33,6 +33,7 @@ namespace GraphQlAirlines.Api
                     .BindComplexType<AirportType>(r => r.To("Airport"))
                     .BindResolver<AirportResolvers>(r => r.To<AirportType>())
                     .BindComplexType<CountryType>(r => r.To("Country"))
+                    
                     .Create()
             );
         }

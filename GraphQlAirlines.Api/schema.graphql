@@ -1,6 +1,7 @@
 ﻿type Query{
 	routes(offset: Int, limit: Int): [Route!]!
-	airlines(offset: Int, limit: Int): [Airline!]!
+	airlines(offset: Int, limit: Int, country: String): [Airline!]!
+	
 }
 
 type Route{
